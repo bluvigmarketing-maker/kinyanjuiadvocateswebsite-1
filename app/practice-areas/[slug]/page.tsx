@@ -55,7 +55,7 @@ export default async function PracticeAreaPage({
           <AnimatedSection>
             <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
               <div className="flex flex-col gap-4">
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-ink-950 text-white">
+                <span className="flex size-14 items-center justify-center rounded-2xl bg-burgundy-950 text-white">
                   <area.icon className="size-6" aria-hidden="true" />
                 </span>
                 <Link
@@ -96,7 +96,7 @@ export default async function PracticeAreaPage({
       <section className="bg-ink-50 py-16 sm:py-20">
         <Container>
           <AnimatedSection>
-            <div className="relative overflow-hidden rounded-3xl bg-ink-950 p-10 text-center text-white sm:p-16">
+            <div className="relative overflow-hidden rounded-3xl bg-burgundy-950 p-10 text-center text-white sm:p-16">
               <Spotlight />
               <div className="relative z-10 flex flex-col items-center gap-6">
                 <h2 className="max-w-2xl font-heading text-3xl font-semibold sm:text-4xl">

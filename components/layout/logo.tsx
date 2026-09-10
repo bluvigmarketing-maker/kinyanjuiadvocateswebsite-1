@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import logoMark from "@/public/logo-mark.png";
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
@@ -8,14 +10,12 @@ export function Logo({ dark = false }: { dark?: boolean }) {
       className="group flex items-center gap-3"
       aria-label="Kinyanjui T.W & Co. Advocates home"
     >
-      <span
-        className={cn(
-          "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg font-heading text-lg font-bold tracking-tight sm:h-13 sm:w-13 sm:text-xl",
-          dark ? "bg-white text-ink-950" : "bg-ink-950 text-white"
-        )}
-      >
-        KT
-      </span>
+      <Image
+        src={logoMark}
+        alt=""
+        priority
+        className="h-9 w-auto shrink-0 rounded-md sm:h-11"
+      />
       <span className="flex flex-col leading-tight">
         <span
           className={cn(

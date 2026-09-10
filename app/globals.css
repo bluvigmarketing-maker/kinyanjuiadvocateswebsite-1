@@ -5,10 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ---------------------------------------------------------------- */
-/* Raw scale — two grayscale (zero-chroma) families only.            */
+/* Raw scale — grayscale structure + a single brand accent hue.      */
 /* `ink`      : structural / primary — full dark-to-light range.     */
 /* `platinum` : accent / CTA — a lighter, narrower band used for      */
 /*              highlights, thin dividers, and the metallic button.  */
+/* `burgundy` : the firm crest's own color — used for large dark      */
+/*              surfaces (heroes, dark cards) in place of flat black. */
+/*              Pure black (`ink-950`) is reserved for the footer.    */
 /* ---------------------------------------------------------------- */
 :root {
   --ink-50: #f6f6f6;
@@ -33,6 +36,18 @@
   --platinum-700: #5e5e5e;
   --platinum-800: #464646;
   --platinum-900: #303030;
+
+  --burgundy-50: #fbebec;
+  --burgundy-100: #f3d0d1;
+  --burgundy-200: #e6a3a5;
+  --burgundy-300: #d3757a;
+  --burgundy-400: #b84a4f;
+  --burgundy-500: #98282d;
+  --burgundy-600: #7c1214; /* exact crest color */
+  --burgundy-700: #5c0e10;
+  --burgundy-800: #400a0b;
+  --burgundy-900: #2c0708;
+  --burgundy-950: #1a0405;
 
   --font-display: var(--font-playfair);
 }
@@ -60,6 +75,18 @@
   --color-platinum-700: var(--platinum-700);
   --color-platinum-800: var(--platinum-800);
   --color-platinum-900: var(--platinum-900);
+
+  --color-burgundy-50: var(--burgundy-50);
+  --color-burgundy-100: var(--burgundy-100);
+  --color-burgundy-200: var(--burgundy-200);
+  --color-burgundy-300: var(--burgundy-300);
+  --color-burgundy-400: var(--burgundy-400);
+  --color-burgundy-500: var(--burgundy-500);
+  --color-burgundy-600: var(--burgundy-600);
+  --color-burgundy-700: var(--burgundy-700);
+  --color-burgundy-800: var(--burgundy-800);
+  --color-burgundy-900: var(--burgundy-900);
+  --color-burgundy-950: var(--burgundy-950);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

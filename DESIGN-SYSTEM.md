@@ -2,7 +2,7 @@
 
 This documents the exact visual/interaction system used on this site, adapted from a proven Next.js design system template. It covers the tech stack, design tokens, component patterns, motion, and page-composition conventions — with real code snippets pulled from this codebase.
 
-The source template used two hue families (navy + gold). This site deliberately replaces both with **pure grayscale** (zero chroma, `R = G = B` at every step) to read as authoritative and modern for a law firm — no color anywhere except semantic red for destructive actions. Everything else (structure, spacing, motion, component anatomy) carries over unchanged from the source template, which is the intended way to reuse this system on a differently-branded site: swap §2's values, keep everything else.
+The source template used two hue families (navy + gold). This site replaces both with a **grayscale-first** system (`ink` + `platinum`, zero chroma, `R = G = B` at every step) to read as authoritative and modern for a law firm, plus one deliberate exception: a **burgundy** accent sampled directly from the firm's crest (§2.1), used for large dark surfaces in place of flat black. Pure black (`ink-950`) is now reserved for the footer only — see §2.3. Everything else (structure, spacing, motion, component anatomy) carries over unchanged from the source template, which is the intended way to reuse this system on a differently-branded site: swap §2's values, keep everything else.
 
 ## 1. Tech Stack
 
@@ -56,10 +56,22 @@ Two grayscale families only: `ink` (structural/primary — the full dark-to-ligh
   --platinum-700: #5e5e5e;  /* accent text on light backgrounds (AA-safe) */
   --platinum-800: #464646;
   --platinum-900: #303030;
+
+  --burgundy-50:  #fbebec;
+  --burgundy-100: #f3d0d1;
+  --burgundy-200: #e6a3a5;
+  --burgundy-300: #d3757a;
+  --burgundy-400: #b84a4f;
+  --burgundy-500: #98282d;
+  --burgundy-600: #7c1214;  /* exact color sampled from the firm crest */
+  --burgundy-700: #5c0e10;
+  --burgundy-800: #400a0b;
+  --burgundy-900: #2c0708;
+  --burgundy-950: #1a0405;  /* dark hero/card surfaces — see §2.3 */
 }
 ```
 
-To re-brand with an actual hue pair: replace these two 10-step scales with a different hue pair at the same lightness steps — everything downstream (semantic tokens, components) references these variables, never raw hex.
+To re-brand with an actual hue pair: replace the `ink`/`platinum` scales with a different hue pair at the same lightness steps — everything downstream (semantic tokens, components) references these variables, never raw hex. `burgundy` is the one exception: it's sampled straight from a real brand asset (the crest), not designed from scratch, so re-deriving it starts from that source color rather than a lightness-step formula.
 
 ### 2.2 Semantic tokens (map the scale to meaning, light + dark)
 
@@ -98,11 +110,13 @@ Tailwind v4's `@theme inline` block exposes the scale as utilities (`bg-ink-700`
 
 ### 2.3 Usage rules (how color is actually applied across the site)
 
-- **`ink-950` surfaces:** page hero banners (`PageHero`), the homepage hero, the footer, and the "vision statement" dark card — reserved for "big structural blocks," never body copy backgrounds.
+- **`burgundy-950` surfaces:** page hero banners (`PageHero`), the homepage hero, the "vision statement" dark card, the "view all practice areas" card, dark CTA cards, and the small icon badges on cards throughout the site — anywhere the design previously used flat black, it now uses the brand's own burgundy instead. At this lightness step it still reads as "almost black," just with a warm cast instead of neutral.
+- **`ink-950` (true black) surfaces:** the footer only. This is the one place black is used deliberately, both because it's the site's structural anchor and to keep one clear neutral-dark reference point distinct from the branded burgundy.
 - **White surfaces:** default page background, all cards.
 - **`ink-50`:** subtle section backgrounds to break up all-white pages (e.g. the Practice Areas grid sits on `bg-ink-50` between two white sections).
 - **`accent-line` (`border-platinum-400/60`):** a thin outline used on emphasized cards, buttons, and dividers — see §4.2.
-- **`platinum-700` text on white / `platinum-300` text on `ink-950`:** the "eyebrow" label color and accent text — always the 700-step on light backgrounds and the 300-step on dark backgrounds, for contrast.
+- **`platinum-700` text on white / `platinum-300` text on dark:** the "eyebrow" label color and accent text — always the 700-step on light backgrounds and the 300-step on dark (burgundy or black) backgrounds, for contrast.
+- **Buttons stay untouched:** `.btn-metallic`'s platinum gradient and all outline/ghost button treatments are unaffected by the burgundy change — buttons are deliberately kept in the grayscale/metallic family regardless of what surface they sit on.
 - Never use platinum as a large fill for body text backgrounds; it's an accent, not a surface color.
 
 ## 3. Typography
@@ -297,7 +311,7 @@ shadcn `Badge`, `variant="outline"` combined with `accent-line` for a consistent
 - Sticky, `bg-background/95 backdrop-blur`, `border-b border-ink-100`.
 - Desktop: horizontal links + a shadcn `DropdownMenu` for "Practice Areas" (the only nav item with children), plus a `btn-metallic` CTA on the far right.
 - Mobile (`< md`): a hamburger button opens a shadcn `Sheet` (slide-in drawer) with a flat, indented list (practice areas nested under a left border).
-- Logo: a text-based monogram badge (`KT`) at `size-11 sm:size-13`, next to a two-line wordmark — sized generously, never shrunk to fit a cramped bar.
+- Logo (`components/layout/logo.tsx`): the real crest artwork (`public/logo-mark.png`, cropped from the firm's source logo, burgundy background baked in), rendered via `next/image` at `h-9 sm:h-11` with `w-auto`, next to a two-line text wordmark — sized generously, never shrunk to fit a cramped bar. Because the crest carries its own fixed burgundy background rather than being CSS-recolored, it renders identically on both light (header) and dark (footer) surfaces — only the adjacent text wordmark swaps color via the `dark` prop. `app/icon.png` (the browser favicon) is a separately-cropped, square-padded version of the same mark (`public/logo-mark-square.png`).
 
 ### 4.7 Footer
 

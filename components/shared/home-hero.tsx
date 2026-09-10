@@ -6,7 +6,7 @@ import { Spotlight } from "@/components/shared/spotlight";
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden bg-ink-950 text-white">
+    <section className="relative overflow-hidden bg-burgundy-950 text-white">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
