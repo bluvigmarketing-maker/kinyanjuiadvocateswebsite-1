@@ -37,6 +37,13 @@ export function Header() {
         <Logo />
 
         <nav className="hidden items-center gap-1 md:flex">
+          <Link
+            href="/"
+            className="inline-flex h-9 items-center rounded-lg px-3 text-sm font-medium text-ink-800 transition-colors hover:bg-muted hover:text-ink-950"
+          >
+            Home
+          </Link>
+
           <DropdownMenu>
             <DropdownMenuTrigger className="inline-flex h-9 items-center gap-1 rounded-lg px-3 text-sm font-medium text-ink-800 transition-colors hover:bg-muted hover:text-ink-950">
               Practice Areas
@@ -96,6 +103,14 @@ export function Header() {
               </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4">
+              <SheetClose
+                render={<Link href="/" />}
+                nativeButton={false}
+                className="rounded-lg px-2 py-2 text-sm font-medium text-ink-800 hover:bg-muted hover:text-ink-950"
+              >
+                Home
+              </SheetClose>
+              <div className="my-2 h-px bg-border" />
               <span className="px-2 pt-2 pb-1 text-xs font-semibold tracking-wide text-ink-500 uppercase">
                 Practice Areas
               </span>
