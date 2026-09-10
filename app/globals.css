@@ -1,0 +1,237 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------- */
+/* Raw scale — two grayscale (zero-chroma) families only.            */
+/* `ink`      : structural / primary — full dark-to-light range.     */
+/* `platinum` : accent / CTA — a lighter, narrower band used for      */
+/*              highlights, thin dividers, and the metallic button.  */
+/* ---------------------------------------------------------------- */
+:root {
+  --ink-50: #f6f6f6;
+  --ink-100: #e8e8e8;
+  --ink-200: #d3d3d3;
+  --ink-300: #b3b3b3;
+  --ink-400: #8c8c8c;
+  --ink-500: #6e6e6e;
+  --ink-600: #555555;
+  --ink-700: #404040;
+  --ink-800: #2b2b2b;
+  --ink-900: #1d1d1d;
+  --ink-950: #0e0e0e;
+
+  --platinum-50: #fafafa;
+  --platinum-100: #f0f0f0;
+  --platinum-200: #e0e0e0;
+  --platinum-300: #c7c7c7;
+  --platinum-400: #ababab;
+  --platinum-500: #949494;
+  --platinum-600: #7a7a7a;
+  --platinum-700: #5e5e5e;
+  --platinum-800: #464646;
+  --platinum-900: #303030;
+
+  --font-display: var(--font-playfair);
+}
+
+@theme inline {
+  --color-ink-50: var(--ink-50);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --color-ink-900: var(--ink-900);
+  --color-ink-950: var(--ink-950);
+
+  --color-platinum-50: var(--platinum-50);
+  --color-platinum-100: var(--platinum-100);
+  --color-platinum-200: var(--platinum-200);
+  --color-platinum-300: var(--platinum-300);
+  --color-platinum-400: var(--platinum-400);
+  --color-platinum-500: var(--platinum-500);
+  --color-platinum-600: var(--platinum-600);
+  --color-platinum-700: var(--platinum-700);
+  --color-platinum-800: var(--platinum-800);
+  --color-platinum-900: var(--platinum-900);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ---------------------------------------------------------------- */
+/* Semantic tokens — map the grayscale onto meaning, light + dark.   */
+/* ---------------------------------------------------------------- */
+:root {
+  --background: #ffffff;
+  --foreground: var(--ink-950);
+  --card: #ffffff;
+  --card-foreground: var(--ink-950);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink-950);
+  --primary: var(--ink-700);
+  --primary-foreground: #fafafa;
+  --secondary: var(--platinum-500);
+  --secondary-foreground: var(--ink-950);
+  --muted: var(--ink-50);
+  --muted-foreground: var(--ink-700);
+  --accent: var(--platinum-100);
+  --accent-foreground: var(--ink-900);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--ink-100);
+  --input: var(--ink-100);
+  --ring: var(--platinum-400);
+  --chart-1: var(--ink-300);
+  --chart-2: var(--ink-500);
+  --chart-3: var(--ink-600);
+  --chart-4: var(--ink-700);
+  --chart-5: var(--ink-900);
+  --radius: 0.5rem;
+  --sidebar: var(--ink-50);
+  --sidebar-foreground: var(--ink-950);
+  --sidebar-primary: var(--ink-700);
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: var(--platinum-100);
+  --sidebar-accent-foreground: var(--ink-900);
+  --sidebar-border: var(--ink-100);
+  --sidebar-ring: var(--platinum-400);
+}
+
+.dark {
+  --background: var(--ink-950);
+  --foreground: #fafafa;
+  --card: var(--ink-900);
+  --card-foreground: #fafafa;
+  --popover: var(--ink-900);
+  --popover-foreground: #fafafa;
+  --primary: var(--platinum-500);
+  --primary-foreground: var(--ink-950);
+  --secondary: var(--ink-700);
+  --secondary-foreground: #fafafa;
+  --muted: var(--ink-800);
+  --muted-foreground: var(--ink-200);
+  --accent: var(--ink-800);
+  --accent-foreground: var(--platinum-300);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: color-mix(in oklch, white 10%, transparent);
+  --input: color-mix(in oklch, white 15%, transparent);
+  --ring: var(--platinum-400);
+  --chart-1: var(--ink-300);
+  --chart-2: var(--ink-500);
+  --chart-3: var(--ink-600);
+  --chart-4: var(--ink-400);
+  --chart-5: var(--ink-200);
+  --sidebar: var(--ink-900);
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: var(--platinum-500);
+  --sidebar-primary-foreground: var(--ink-950);
+  --sidebar-accent: var(--ink-800);
+  --sidebar-accent-foreground: var(--platinum-300);
+  --sidebar-border: color-mix(in oklch, white 10%, transparent);
+  --sidebar-ring: var(--platinum-400);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Brand utilities                                                   */
+/* ---------------------------------------------------------------- */
+@layer utilities {
+  .btn-metallic {
+    background-image: linear-gradient(
+      110deg,
+      var(--platinum-600) 0%,
+      var(--platinum-300) 30%,
+      var(--platinum-500) 45%,
+      var(--platinum-100) 55%,
+      var(--platinum-500) 70%,
+      var(--platinum-600) 100%
+    );
+    background-size: 250% 100%;
+    color: var(--ink-950);
+    animation: shimmer 5s linear infinite;
+  }
+  .btn-metallic:hover {
+    animation-duration: 1.8s;
+  }
+
+  .accent-line {
+    @apply border border-platinum-400/60;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-metallic {
+    animation: none;
+  }
+}
