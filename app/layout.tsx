@@ -19,7 +19,7 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const description =
   "Kinyanjui T.W & Co. Advocates is a Kenyan law firm providing litigation, arbitration, conveyancing, and advisory legal services to individuals, corporate entities, and institutions. Strategic advocacy. Disciplined analysis. Sound legal judgment.";
 
