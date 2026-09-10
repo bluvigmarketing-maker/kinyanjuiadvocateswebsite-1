@@ -211,13 +211,40 @@
     background-size: 250% 100%;
     color: var(--ink-950);
     animation: shimmer 5s linear infinite;
+    transition:
+      transform 0.2s ease-out,
+      box-shadow 0.2s ease-out;
   }
   .btn-metallic:hover {
     animation-duration: 1.8s;
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px -8px color-mix(in oklch, var(--ink-950) 45%, transparent);
+  }
+  .btn-metallic:active {
+    transform: scale(0.99);
   }
 
   .accent-line {
     @apply border border-platinum-400/60;
+  }
+
+  .btn-lift {
+    @apply transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.99];
+  }
+
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute right-0 bottom-0 left-0 h-px origin-left scale-x-0 bg-current transition-transform duration-300 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  .animate-fade-rise {
+    animation: fade-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
@@ -230,8 +257,22 @@
   }
 }
 
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn-metallic {
+    animation: none;
+  }
+  .animate-fade-rise {
     animation: none;
   }
 }

@@ -23,16 +23,27 @@ export function SectionHeading({
         className
       )}
     >
-      <span
+      <div
         className={cn(
-          "w-fit rounded-full border px-3 py-1 text-xs font-semibold tracking-wide uppercase",
-          dark
-            ? "border-platinum-400/40 text-platinum-300"
-            : "border-platinum-400/60 text-platinum-700"
+          "flex items-center gap-2.5",
+          align === "center" && "justify-center"
         )}
       >
-        {eyebrow}
-      </span>
+        <span
+          className={cn(
+            "h-px w-6 shrink-0",
+            dark ? "bg-platinum-400/70" : "bg-platinum-500"
+          )}
+        />
+        <span
+          className={cn(
+            "text-xs font-semibold tracking-[0.2em] uppercase",
+            dark ? "text-platinum-300" : "text-platinum-700"
+          )}
+        >
+          {eyebrow}
+        </span>
+      </div>
       <h2
         className={cn(
           "font-heading text-3xl font-semibold sm:text-4xl",

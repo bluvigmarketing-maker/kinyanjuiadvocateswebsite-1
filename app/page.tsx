@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { AnimatedSection } from "@/components/shared/animated-section";
+import { HomeHero } from "@/components/shared/home-hero";
 import { practiceAreas } from "@/lib/data/practice-areas";
 import { team } from "@/lib/data/team";
 import { firm } from "@/lib/data/firm";
@@ -54,52 +55,7 @@ const scopeOfWork = [
 export default function Home() {
   return (
     <>
-      {/* Hero — not animated; it's the first thing visible */}
-      <section className="relative overflow-hidden bg-ink-950 text-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-        <Container className="relative flex flex-col items-start gap-6 py-24 sm:py-32">
-          <span className="w-fit rounded-full border border-platinum-400/60 px-3 py-1 text-xs font-semibold tracking-wide text-platinum-300 uppercase">
-            Advocates &middot; High Court of Kenya
-          </span>
-          <h1 className="max-w-3xl font-heading text-4xl leading-[1.1] font-bold sm:text-6xl">
-            Strategic advocacy. Disciplined analysis. Sound legal judgment.
-          </h1>
-          <p className="max-w-2xl text-lg text-ink-200">
-            Kinyanjui T.W &amp; Co. Advocates is a Kenyan law firm providing
-            litigation, arbitration, conveyancing, and advisory legal services
-            to individuals, corporate entities, and institutions — anchored in
-            analytical depth and structured legal reasoning.
-          </p>
-          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-            <Button
-              size="lg"
-              render={<Link href="/contact" />}
-              nativeButton={false}
-              className="btn-metallic accent-line px-6 font-semibold"
-            >
-              Book a Consultation
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              render={<Link href="/about" />}
-              nativeButton={false}
-              className="accent-line border-white/40 bg-transparent px-6 text-white hover:bg-white/10"
-            >
-              Our Firm
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <HomeHero />
 
       {/* About teaser */}
       <section className="py-16 sm:py-20">
@@ -126,10 +82,13 @@ export default function Home() {
                 </p>
                 <Link
                   href="/about"
-                  className="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-950 underline-offset-4 hover:underline"
+                  className="link-underline group mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-950"
                 >
                   Read our practice philosophy
-                  <ArrowRight className="size-4" aria-hidden="true" />
+                  <ArrowRight
+                    className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                 </Link>
               </div>
             </div>
@@ -152,10 +111,10 @@ export default function Home() {
               <AnimatedSection key={area.slug} delay={index * 0.05}>
                 <Link
                   href={`/practice-areas/${area.slug}`}
-                  className="group flex h-full flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
+                  className="group flex h-full flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-platinum-300 hover:shadow-lg"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="flex size-11 items-center justify-center rounded-xl bg-ink-950 text-white">
+                    <span className="flex size-11 items-center justify-center rounded-xl bg-ink-950 text-white transition-transform duration-300 group-hover:scale-110">
                       <area.icon className="size-5" aria-hidden="true" />
                     </span>
                     <span className="font-heading text-2xl font-semibold text-ink-200">
@@ -168,7 +127,10 @@ export default function Home() {
                   <p className="text-sm text-ink-700">{area.summary}</p>
                   <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-platinum-700 group-hover:text-ink-950">
                     Learn more
-                    <ArrowRight className="size-4" aria-hidden="true" />
+                    <ArrowRight
+                      className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </span>
                 </Link>
               </AnimatedSection>
@@ -176,14 +138,17 @@ export default function Home() {
             <AnimatedSection delay={practiceAreas.length * 0.05}>
               <Link
                 href="/practice-areas"
-                className="flex h-full flex-col items-start justify-center gap-3 rounded-2xl bg-ink-950 p-6 text-white transition-transform hover:-translate-y-1"
+                className="group flex h-full flex-col items-start justify-center gap-3 rounded-2xl bg-ink-950 p-6 text-white transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg"
               >
                 <span className="font-heading text-lg font-semibold">
                   View all practice areas
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-platinum-300">
                   Explore the full scope of our work
-                  <ArrowRight className="size-4" aria-hidden="true" />
+                  <ArrowRight
+                    className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                 </span>
               </Link>
             </AnimatedSection>
@@ -253,9 +218,9 @@ export default function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member, index) => (
               <AnimatedSection key={member.slug} delay={index * 0.05}>
-                <div className="flex h-full flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
-                  <div className="flex aspect-[4/5] w-full items-center justify-center rounded-xl bg-ink-100">
-                    <span className="font-heading text-4xl font-semibold text-ink-300">
+                <div className="group flex h-full flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-platinum-300 hover:shadow-lg">
+                  <div className="flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-xl bg-ink-100">
+                    <span className="font-heading text-4xl font-semibold text-ink-300 transition-transform duration-300 group-hover:scale-110">
                       {member.name
                         .split(" ")
                         .map((n) => n[0])
@@ -276,10 +241,13 @@ export default function Home() {
           <AnimatedSection>
             <Link
               href="/team"
-              className="mx-auto inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-950 underline-offset-4 hover:underline"
+              className="link-underline group mx-auto inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-950"
             >
               Meet the full team
-              <ArrowRight className="size-4" aria-hidden="true" />
+              <ArrowRight
+                className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Link>
           </AnimatedSection>
         </Container>

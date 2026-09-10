@@ -59,9 +59,12 @@ export default async function PracticeAreaPage({
                 </span>
                 <Link
                   href="/practice-areas"
-                  className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-700 hover:text-ink-950"
+                  className="group inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-700 transition-colors hover:text-ink-950"
                 >
-                  <ArrowLeft className="size-4" aria-hidden="true" />
+                  <ArrowLeft
+                    className="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+                    aria-hidden="true"
+                  />
                   All practice areas
                 </Link>
               </div>
@@ -115,7 +118,7 @@ export default async function PracticeAreaPage({
           <AnimatedSection delay={0.1} className="mt-10">
             <Link
               href={`/practice-areas/${next.slug}`}
-              className="group flex items-center justify-between rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
+              className="group flex items-center justify-between rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-platinum-300 hover:shadow-lg"
             >
               <div>
                 <span className="text-xs font-semibold tracking-wide text-platinum-700 uppercase">
@@ -126,7 +129,7 @@ export default async function PracticeAreaPage({
                 </p>
               </div>
               <ArrowRight
-                className="size-5 text-ink-950 transition-transform group-hover:translate-x-1"
+                className="size-5 text-ink-950 transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden="true"
               />
             </Link>

@@ -27,9 +27,9 @@ export default function PracticeAreasPage() {
             <AnimatedSection key={area.slug} delay={index * 0.05}>
               <Link
                 href={`/practice-areas/${area.slug}`}
-                className="group grid gap-6 rounded-2xl border border-ink-100 bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md sm:grid-cols-[auto_1fr_auto] sm:items-center"
+                className="group grid gap-6 rounded-2xl border border-ink-100 bg-white p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-platinum-300 hover:shadow-lg sm:grid-cols-[auto_1fr_auto] sm:items-center"
               >
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-ink-950 text-white">
+                <span className="flex size-14 items-center justify-center rounded-2xl bg-ink-950 text-white transition-transform duration-300 group-hover:scale-110">
                   <area.icon className="size-6" aria-hidden="true" />
                 </span>
                 <div className="flex flex-col gap-2">
@@ -46,7 +46,7 @@ export default function PracticeAreasPage() {
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-950 sm:justify-self-end">
                   <span className="hidden sm:inline">Details</span>
                   <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-1"
+                    className="size-4 transition-transform duration-300 group-hover:translate-x-1"
                     aria-hidden="true"
                   />
                 </span>

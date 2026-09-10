@@ -10,17 +10,35 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <div className="bg-ink-950 py-16 text-center text-white sm:py-20">
+    <div className="overflow-hidden bg-ink-950 py-16 text-center text-white sm:py-20">
       <Container className="flex flex-col items-center gap-4">
-        <span className="w-fit rounded-full border border-platinum-400/60 px-3 py-1 text-xs font-semibold tracking-wide text-platinum-300 uppercase">
-          {eyebrow}
-        </span>
-        <h1 className="font-heading text-4xl font-bold sm:text-5xl">
+        <div
+          className="animate-fade-rise flex items-center gap-2.5"
+          style={{ animationDelay: "0.05s" }}
+        >
+          <span className="h-px w-6 bg-platinum-400/70" />
+          <span className="text-xs font-semibold tracking-[0.2em] text-platinum-300 uppercase">
+            {eyebrow}
+          </span>
+          <span className="h-px w-6 bg-platinum-400/70" />
+        </div>
+        <h1
+          className="animate-fade-rise font-heading text-4xl font-bold sm:text-5xl"
+          style={{ animationDelay: "0.14s" }}
+        >
           {title}
         </h1>
-        <span className="h-px w-16 bg-platinum-400" />
+        <span
+          className="animate-fade-rise h-px w-16 bg-platinum-400"
+          style={{ animationDelay: "0.23s" }}
+        />
         {description ? (
-          <p className="max-w-2xl text-ink-200">{description}</p>
+          <p
+            className="animate-fade-rise max-w-2xl text-ink-200"
+            style={{ animationDelay: "0.23s" }}
+          >
+            {description}
+          </p>
         ) : null}
       </Container>
     </div>

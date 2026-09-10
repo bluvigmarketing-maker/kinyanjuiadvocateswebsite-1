@@ -150,9 +150,29 @@ Base button comes from shadcn (`components/ui/button.tsx`) with variants `defaul
     color: var(--ink-950);
     animation: shimmer 5s linear infinite;
   }
-  .btn-metallic:hover { animation-duration: 1.8s; } /* speeds up on hover */
+  .btn-metallic:hover {
+    animation-duration: 1.8s;
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px -8px color-mix(in oklch, var(--ink-950) 45%, transparent);
+  } /* speeds up + lifts on hover */
+  .btn-metallic:active { transform: scale(0.99); }
 
   .accent-line { @apply border border-platinum-400/60; } /* thin outline, reused everywhere */
+
+  .btn-lift {
+    @apply transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.99];
+  } /* same hover/press feedback as .btn-metallic, for non-metallic (outline/ghost) buttons */
+
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute right-0 bottom-0 left-0 h-px origin-left scale-x-0 bg-current transition-transform duration-300 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  } /* animated slide-in underline for inline text links, in place of instant `hover:underline` */
 }
 
 @keyframes shimmer {
@@ -214,32 +234,54 @@ Radius scale: `rounded-lg` (buttons/inputs) → `rounded-xl`/`rounded-2xl` (card
 
 ### 4.3 Section heading
 
-Every content section uses the same three-part heading — eyebrow pill → serif title → short platinum underline rule → optional description — via the shared `SectionHeading` component (`components/shared/section-heading.tsx`):
+Every content section uses the same three-part heading — a **kicker** (short line + uppercase label, no border/pill) → serif title → short platinum underline rule → optional description — via the shared `SectionHeading` component (`components/shared/section-heading.tsx`). Eyebrow labels are deliberately borderless: no pill/badge shape anywhere in the UI outside of the `Badge` component itself (§4.5), to keep the grayscale system reading as clean editorial typography rather than boxed chips:
 
 ```tsx
-<span className="w-fit rounded-full border border-platinum-400/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-platinum-700">
-  Eyebrow Label
-</span>
+<div className="flex items-center gap-2.5">
+  <span className="h-px w-6 shrink-0 bg-platinum-500" />
+  <span className="text-xs font-semibold tracking-[0.2em] uppercase text-platinum-700">
+    Eyebrow Label
+  </span>
+</div>
 <h2 className="font-heading text-3xl font-semibold text-ink-950 sm:text-4xl">Title</h2>
 <span className="h-px w-16 bg-platinum-400" />
 <p className="max-w-2xl text-ink-700">Optional supporting description.</p>
 ```
 
-On a dark background (`dark` prop), it swaps to `border-platinum-400/40 text-platinum-300` (eyebrow), `text-white` (title), `text-ink-200` (description).
+On a dark background (`dark` prop), it swaps to `text-platinum-300` (kicker + label), `text-white` (title), `text-ink-200` (description).
 
-### 4.4 Page hero banner (interior pages)
+### 4.4 Page hero banner (interior pages) & hero entrance animation
 
 Every non-homepage page opens with the same dark banner before its content, via the shared `PageHero` component (`components/shared/page-hero.tsx`):
 
 ```tsx
 <div className="bg-ink-950 py-16 text-center text-white sm:py-20">
-  <span className="w-fit rounded-full border border-platinum-400/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-platinum-300">
-    Eyebrow
-  </span>
+  <div className="flex items-center gap-2.5">
+    <span className="h-px w-6 bg-platinum-400/70" />
+    <span className="text-xs font-semibold tracking-[0.2em] uppercase text-platinum-300">
+      Eyebrow
+    </span>
+    <span className="h-px w-6 bg-platinum-400/70" />
+  </div>
   <h1 className="font-heading text-4xl font-bold sm:text-5xl">Page Title</h1>
   <span className="h-px w-16 bg-platinum-400" />
   <p className="max-w-2xl text-ink-200">Optional description</p>
 </div>
+```
+
+`PageHero` and the homepage `HomeHero` are both above-the-fold, so their entrance reveal is **pure CSS**, not Framer Motion — each child gets `.animate-fade-rise` (defined in `globals.css`) with a staggered inline `animationDelay`. This is deliberate: content wrapped in Framer Motion's `initial`/`animate` sits at `opacity: 0` until React hydrates, which is a real flash-of-invisible-heading risk for the page's primary `<h1>` on a slow connection or during dev-mode compilation. A CSS `@keyframes` animation is present in the server-rendered HTML immediately and plays with zero JS dependency:
+
+```css
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise {
+  animation: fade-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+```
+
+Below-the-fold content has no such constraint — it's already deferred until scrolled into view — so it stays on `AnimatedSection`/Framer Motion (§5).
 ```
 
 ### 4.5 Badges
