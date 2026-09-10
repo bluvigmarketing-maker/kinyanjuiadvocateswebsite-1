@@ -8,7 +8,7 @@ import { team } from "@/lib/data/team";
 export const metadata: Metadata = {
   title: "The Team",
   description:
-    "Meet the advocates and staff of Kinyanjui T.W & Co. Advocates — disciplined legal reasoning across litigation, land law, employment, and regulatory advisory.",
+    "Meet the advocates and staff of Kinyanjui T.W & Co. Advocates: disciplined legal reasoning across litigation, land law, employment, and regulatory advisory.",
 };
 
 function initials(name: string) {

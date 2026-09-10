@@ -12,6 +12,7 @@ import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { HomeHero } from "@/components/shared/home-hero";
+import { Spotlight } from "@/components/shared/spotlight";
 import { practiceAreas } from "@/lib/data/practice-areas";
 import { team } from "@/lib/data/team";
 import { firm } from "@/lib/data/firm";
@@ -65,7 +66,7 @@ export default function Home() {
               <SectionHeading
                 eyebrow="About the Firm"
                 title="A practice built on judgment, not formality."
-                description={`Established in ${firm.founded}, the firm treats each matter as a unique problem requiring careful issue-framing, factual evaluation, and strategic decision-making — never a routine formality.`}
+                description={`Established in ${firm.founded}, the firm treats each matter as a unique problem requiring careful issue-framing, factual evaluation, and strategic decision-making, never a routine formality.`}
               />
               <div className="flex flex-col gap-4 text-ink-700">
                 <p>
@@ -103,7 +104,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="What We Do"
               title="Practice Areas"
-              description="Five areas of focused, disciplined practice — spanning contentious litigation to preventive advisory work."
+              description="Five areas of focused, disciplined practice, from contentious litigation to preventive advisory work."
             />
           </AnimatedSection>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -138,12 +139,13 @@ export default function Home() {
             <AnimatedSection delay={practiceAreas.length * 0.05}>
               <Link
                 href="/practice-areas"
-                className="group flex h-full flex-col items-start justify-center gap-3 rounded-2xl bg-ink-950 p-6 text-white transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg"
+                className="group relative flex h-full flex-col items-start justify-center gap-3 overflow-hidden rounded-2xl bg-ink-950 p-6 text-white transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg"
               >
-                <span className="font-heading text-lg font-semibold">
+                <Spotlight />
+                <span className="relative z-10 font-heading text-lg font-semibold">
                   View all practice areas
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-platinum-300">
+                <span className="relative z-10 inline-flex items-center gap-1.5 text-sm font-semibold text-platinum-300">
                   Explore the full scope of our work
                   <ArrowRight
                     className="size-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -189,15 +191,16 @@ export default function Home() {
       <section className="py-16 sm:py-20">
         <Container>
           <AnimatedSection>
-            <div className="rounded-3xl bg-ink-950 px-6 py-14 text-center text-white sm:px-16 sm:py-20">
-              <p className="mx-auto max-w-3xl font-heading text-2xl leading-snug font-medium text-balance italic sm:text-3xl">
+            <div className="relative overflow-hidden rounded-3xl bg-ink-950 px-6 py-14 text-center text-white sm:px-16 sm:py-20">
+              <Spotlight />
+              <p className="relative z-10 mx-auto max-w-3xl font-heading text-2xl leading-snug font-medium text-balance italic sm:text-3xl">
                 &ldquo;The firm approaches legal practice as an exercise in
                 judgment rather than formality. Each matter is treated as a
                 unique problem requiring careful issue-framing, factual
                 evaluation, and strategic decision-making.&rdquo;
               </p>
-              <span className="mx-auto mt-8 block h-px w-16 bg-platinum-400" />
-              <p className="mt-6 text-sm font-semibold tracking-wide text-platinum-300 uppercase">
+              <span className="relative z-10 mx-auto mt-8 block h-px w-16 bg-platinum-400" />
+              <p className="relative z-10 mt-6 text-sm font-semibold tracking-wide text-platinum-300 uppercase">
                 Our Practice Philosophy
               </p>
             </div>
@@ -263,7 +266,7 @@ export default function Home() {
               </h2>
               <p className="max-w-xl text-ink-700">
                 Whether litigation, arbitration, conveyancing, or regulatory
-                advisory — speak with an advocate who treats your matter as
+                advisory, speak with an advocate who treats your matter as
                 the unique problem it is.
               </p>
               <Button

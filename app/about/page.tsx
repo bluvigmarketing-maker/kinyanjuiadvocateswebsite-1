@@ -29,7 +29,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="About the Firm"
-        description={`Established in ${firm.founded} — litigation, arbitration, conveyancing, and advisory legal services built on analytical depth and disciplined advocacy.`}
+        description={`Established in ${firm.founded}: litigation, arbitration, conveyancing, and advisory legal services built on analytical depth and disciplined advocacy.`}
       />
 
       <section className="py-16 sm:py-20">

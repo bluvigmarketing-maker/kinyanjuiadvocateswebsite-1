@@ -18,7 +18,7 @@ export default function PracticeAreasPage() {
       <PageHero
         eyebrow="What We Do"
         title="Practice Areas"
-        description="Five areas of focused, disciplined practice — spanning contentious litigation to preventive advisory work."
+        description="Five areas of focused, disciplined practice, spanning contentious litigation to preventive advisory work."
       />
 
       <section className="py-16 sm:py-20">

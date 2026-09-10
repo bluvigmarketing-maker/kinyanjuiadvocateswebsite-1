@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
+import { Spotlight } from "@/components/shared/spotlight";
 
 export function HomeHero() {
   return (
@@ -15,7 +16,8 @@ export function HomeHero() {
           backgroundSize: "48px 48px",
         }}
       />
-      <Container className="relative flex flex-col items-start gap-6 py-24 sm:py-32">
+      <Spotlight />
+      <Container className="relative z-10 flex flex-col items-start gap-6 py-24 sm:py-32">
         <div
           className="animate-fade-rise flex items-center gap-2.5"
           style={{ animationDelay: "0.05s" }}
@@ -37,7 +39,7 @@ export function HomeHero() {
         >
           Kinyanjui T.W &amp; Co. Advocates is a Kenyan law firm providing
           litigation, arbitration, conveyancing, and advisory legal services
-          to individuals, corporate entities, and institutions — anchored in
+          to individuals, corporate entities, and institutions, anchored in
           analytical depth and structured legal reasoning.
         </p>
         <div

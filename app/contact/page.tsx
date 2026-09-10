@@ -9,7 +9,7 @@ import { firm } from "@/lib/data/firm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Kinyanjui T.W & Co. Advocates in Ruiru, Kenya — call, email, or send an enquiry directly.",
+    "Get in touch with Kinyanjui T.W & Co. Advocates in Ruiru, Kenya. Call, email, or send an enquiry directly.",
 };
 
 const details = [

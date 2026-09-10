@@ -6,6 +6,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/shared/container";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { Button } from "@/components/ui/button";
+import { Spotlight } from "@/components/shared/spotlight";
 import {
   getPracticeAreaBySlug,
   practiceAreas,
@@ -95,23 +96,26 @@ export default async function PracticeAreaPage({
       <section className="bg-ink-50 py-16 sm:py-20">
         <Container>
           <AnimatedSection>
-            <div className="flex flex-col items-center gap-6 rounded-3xl bg-ink-950 p-10 text-center text-white sm:p-16">
-              <h2 className="max-w-2xl font-heading text-3xl font-semibold sm:text-4xl">
-                Speak with an advocate about this matter.
-              </h2>
-              <p className="max-w-xl text-ink-200">
-                Our team brings disciplined preparation and strategic
-                judgment to every engagement.
-              </p>
-              <Button
-                size="lg"
-                render={<Link href="/contact" />}
-                nativeButton={false}
-                className="btn-metallic accent-line px-6 font-semibold"
-              >
-                Book a Consultation
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Button>
+            <div className="relative overflow-hidden rounded-3xl bg-ink-950 p-10 text-center text-white sm:p-16">
+              <Spotlight />
+              <div className="relative z-10 flex flex-col items-center gap-6">
+                <h2 className="max-w-2xl font-heading text-3xl font-semibold sm:text-4xl">
+                  Speak with an advocate about this matter.
+                </h2>
+                <p className="max-w-xl text-ink-200">
+                  Our team brings disciplined preparation and strategic
+                  judgment to every engagement.
+                </p>
+                <Button
+                  size="lg"
+                  render={<Link href="/contact" />}
+                  nativeButton={false}
+                  className="btn-metallic accent-line px-6 font-semibold"
+                >
+                  Book a Consultation
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Button>
+              </div>
             </div>
           </AnimatedSection>
 

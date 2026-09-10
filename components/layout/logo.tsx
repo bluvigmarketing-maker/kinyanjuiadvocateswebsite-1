@@ -6,7 +6,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
     <Link
       href="/"
       className="group flex items-center gap-3"
-      aria-label="Kinyanjui T.W & Co. Advocates — home"
+      aria-label="Kinyanjui T.W & Co. Advocates home"
     >
       <span
         className={cn(

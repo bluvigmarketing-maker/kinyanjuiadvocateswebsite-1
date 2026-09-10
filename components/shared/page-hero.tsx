@@ -1,4 +1,5 @@
 import { Container } from "@/components/shared/container";
+import { Spotlight } from "@/components/shared/spotlight";
 
 export function PageHero({
   eyebrow,
@@ -10,8 +11,9 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <div className="overflow-hidden bg-ink-950 py-16 text-center text-white sm:py-20">
-      <Container className="flex flex-col items-center gap-4">
+    <div className="relative overflow-hidden bg-ink-950 py-16 text-center text-white sm:py-20">
+      <Spotlight />
+      <Container className="relative z-10 flex flex-col items-center gap-4">
         <div
           className="animate-fade-rise flex items-center gap-2.5"
           style={{ animationDelay: "0.05s" }}

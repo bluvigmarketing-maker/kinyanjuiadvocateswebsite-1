@@ -85,7 +85,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Arbitration & Alternative Dispute Resolution",
     icon: ScrollText,
     summary:
-      "Arbitration and ADR with a focus on procedural integrity, efficiency, and enforceability — including particular experience in construction disputes.",
+      "Arbitration and ADR with a focus on procedural integrity, efficiency, and enforceability, including particular experience in construction disputes.",
     intro:
       "The firm undertakes arbitration and alternative dispute resolution matters, with a focus on procedural integrity, efficiency, and enforceability of outcomes. We have particular experience in disputes arising from construction and building contracts, an area that requires close engagement with contractual documentation, technical evidence, and arbitral procedure.",
     items: [

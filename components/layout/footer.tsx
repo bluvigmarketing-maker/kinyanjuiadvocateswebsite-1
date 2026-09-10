@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Logo } from "@/components/layout/logo";
+import { Spotlight } from "@/components/shared/spotlight";
 import { firm } from "@/lib/data/firm";
 import { practiceAreas } from "@/lib/data/practice-areas";
 
@@ -9,8 +10,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-ink-800 bg-ink-950 text-ink-100">
-      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-3">
+    <footer className="relative overflow-hidden border-t border-ink-800 bg-ink-950 text-ink-100">
+      <Spotlight />
+      <Container className="relative z-10 grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-3">
         <div className="flex flex-col gap-4">
           <Logo dark />
           <p className="max-w-xs text-sm text-ink-300">{firm.tagline}</p>
@@ -83,7 +85,7 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-ink-800">
+      <div className="relative z-10 border-t border-ink-800">
         <Container className="flex flex-col items-center justify-between gap-2 py-6 text-xs text-ink-400 sm:flex-row">
           <p>
             &copy; {year} {firm.name}. All rights reserved.
