@@ -115,7 +115,7 @@ export default function Home() {
                   className="group flex h-full flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-platinum-300 hover:shadow-lg"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="flex size-11 items-center justify-center rounded-xl bg-burgundy-950 text-white transition-transform duration-300 group-hover:scale-110">
+                    <span className="flex size-11 items-center justify-center rounded-xl bg-burgundy-600 text-white transition-transform duration-300 group-hover:scale-110">
                       <area.icon className="size-5" aria-hidden="true" />
                     </span>
                     <span className="font-heading text-2xl font-semibold text-ink-200">
@@ -139,7 +139,7 @@ export default function Home() {
             <AnimatedSection delay={practiceAreas.length * 0.05}>
               <Link
                 href="/practice-areas"
-                className="group relative flex h-full flex-col items-start justify-center gap-3 overflow-hidden rounded-2xl bg-burgundy-950 p-6 text-white transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg"
+                className="group relative flex h-full flex-col items-start justify-center gap-3 overflow-hidden rounded-2xl bg-burgundy-600 p-6 text-white transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-lg"
               >
                 <Spotlight />
                 <span className="relative z-10 font-heading text-lg font-semibold">
@@ -191,7 +191,7 @@ export default function Home() {
       <section className="py-16 sm:py-20">
         <Container>
           <AnimatedSection>
-            <div className="relative overflow-hidden rounded-3xl bg-burgundy-950 px-6 py-14 text-center text-white sm:px-16 sm:py-20">
+            <div className="relative overflow-hidden rounded-3xl bg-burgundy-600 px-6 py-14 text-center text-white sm:px-16 sm:py-20">
               <Spotlight />
               <p className="relative z-10 mx-auto max-w-3xl font-heading text-2xl leading-snug font-medium text-balance italic sm:text-3xl">
                 &ldquo;The firm approaches legal practice as an exercise in

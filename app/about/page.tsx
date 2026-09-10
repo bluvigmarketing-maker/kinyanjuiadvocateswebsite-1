@@ -78,7 +78,7 @@ export default function AboutPage() {
           <div className="grid gap-5 lg:grid-cols-2">
             <AnimatedSection>
               <div className="flex h-full flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-8 shadow-sm">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-burgundy-950 text-white">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-burgundy-600 text-white">
                   <Gavel className="size-5" aria-hidden="true" />
                 </span>
                 <h3 className="font-heading text-xl font-semibold text-ink-950">
@@ -98,7 +98,7 @@ export default function AboutPage() {
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
               <div className="flex h-full flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-8 shadow-sm">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-burgundy-950 text-white">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-burgundy-600 text-white">
                   <ShieldCheck className="size-5" aria-hidden="true" />
                 </span>
                 <h3 className="font-heading text-xl font-semibold text-ink-950">

@@ -67,7 +67,7 @@ Two grayscale families only: `ink` (structural/primary — the full dark-to-ligh
   --burgundy-700: #5c0e10;
   --burgundy-800: #400a0b;
   --burgundy-900: #2c0708;
-  --burgundy-950: #1a0405;  /* dark hero/card surfaces — see §2.3 */
+  --burgundy-950: #1a0405;
 }
 ```
 
@@ -110,7 +110,7 @@ Tailwind v4's `@theme inline` block exposes the scale as utilities (`bg-ink-700`
 
 ### 2.3 Usage rules (how color is actually applied across the site)
 
-- **`burgundy-950` surfaces:** page hero banners (`PageHero`), the homepage hero, the "vision statement" dark card, the "view all practice areas" card, dark CTA cards, and the small icon badges on cards throughout the site — anywhere the design previously used flat black, it now uses the brand's own burgundy instead. At this lightness step it still reads as "almost black," just with a warm cast instead of neutral.
+- **`burgundy-600` surfaces:** page hero banners (`PageHero`), the homepage hero, the "vision statement" dark card, the "view all practice areas" card, dark CTA cards, and the small icon badges on cards throughout the site — anywhere the design previously used flat black, it now uses the brand's own burgundy instead. `burgundy-600` is the exact color sampled from the crest (§2.1) — it's used as-is, not darkened, so the site's burgundy always matches the logo precisely.
 - **`ink-950` (true black) surfaces:** the footer only. This is the one place black is used deliberately, both because it's the site's structural anchor and to keep one clear neutral-dark reference point distinct from the branded burgundy.
 - **White surfaces:** default page background, all cards.
 - **`ink-50`:** subtle section backgrounds to break up all-white pages (e.g. the Practice Areas grid sits on `bg-ink-50` between two white sections).
@@ -308,7 +308,7 @@ shadcn `Badge`, `variant="outline"` combined with `accent-line` for a consistent
 
 ### 4.6 Header / Navigation
 
-- Sticky, `bg-background/95 backdrop-blur`, `border-b border-ink-100`.
+- Static (not sticky) — scrolls away with the page. `bg-background`, `border-b border-ink-100`.
 - Desktop: horizontal links + a shadcn `DropdownMenu` for "Practice Areas" (the only nav item with children), plus a `btn-metallic` CTA on the far right.
 - Mobile (`< md`): a hamburger button opens a shadcn `Sheet` (slide-in drawer) with a flat, indented list (practice areas nested under a left border).
 - Logo (`components/layout/logo.tsx`): the real crest artwork (`public/logo-mark.png`, cropped from the firm's source logo, burgundy background baked in), rendered via `next/image` at `h-9 sm:h-11` with `w-auto`, next to a two-line text wordmark — sized generously, never shrunk to fit a cramped bar. Because the crest carries its own fixed burgundy background rather than being CSS-recolored, it renders identically on both light (header) and dark (footer) surfaces — only the adjacent text wordmark swaps color via the `dark` prop. `app/icon.png` (the browser favicon) is a separately-cropped, square-padded version of the same mark (`public/logo-mark-square.png`).

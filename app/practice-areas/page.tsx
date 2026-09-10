@@ -29,7 +29,7 @@ export default function PracticeAreasPage() {
                 href={`/practice-areas/${area.slug}`}
                 className="group grid gap-6 rounded-2xl border border-ink-100 bg-white p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-platinum-300 hover:shadow-lg sm:grid-cols-[auto_1fr_auto] sm:items-center"
               >
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-burgundy-950 text-white transition-transform duration-300 group-hover:scale-110">
+                <span className="flex size-14 items-center justify-center rounded-2xl bg-burgundy-600 text-white transition-transform duration-300 group-hover:scale-110">
                   <area.icon className="size-6" aria-hidden="true" />
                 </span>
                 <div className="flex flex-col gap-2">

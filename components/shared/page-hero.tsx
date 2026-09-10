@@ -11,7 +11,7 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <div className="relative overflow-hidden bg-burgundy-950 py-16 text-center text-white sm:py-20">
+    <div className="relative overflow-hidden bg-burgundy-600 py-16 text-center text-white sm:py-20">
       <Spotlight />
       <Container className="relative z-10 flex flex-col items-center gap-4">
         <div

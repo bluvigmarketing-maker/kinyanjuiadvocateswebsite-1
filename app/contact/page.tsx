@@ -55,7 +55,7 @@ export default function ContactPage() {
                     key={detail.label}
                     className="accent-line flex items-start gap-4 rounded-2xl bg-white p-5"
                   >
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-burgundy-950 text-white">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-burgundy-600 text-white">
                       <detail.icon className="size-4.5" aria-hidden="true" />
                     </span>
                     <div>

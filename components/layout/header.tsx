@@ -32,7 +32,7 @@ export function Header() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-100 bg-background/95 backdrop-blur">
+    <header className="border-b border-ink-100 bg-background">
       <Container className="flex h-20 items-center justify-between">
         <Logo />
 
